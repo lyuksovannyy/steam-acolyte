@@ -234,10 +234,14 @@ class Steam(SteamImpl, SteamBase, QObject):
 
     @trace.method
     def stop(self):
-        """Signal steam to exit."""
+        """Force kill steam... why not?"""
         if not self.has_steam_lock():
             if self._is_steam_pid_valid() and self._connect():
-                self._send([self.exe, '-shutdown'])
+                try:
+                    if pid := self._read_steam_pid():
+                        os.kill(pid, 9)  # SIGTERM
+                except:
+                    pass
 
     @trace.method
     def read_config(self, filename):
