@@ -1,6 +1,28 @@
 Steam Acolyte
 =============
 
+Fork info
+=========
+This version fixed linux issue where it unable to close steam
+This fork just kills steam process (kinda easiest way)
+
+Fork installation guide
+=======================
+Install python3+ (`sudo pacman -S python3`)
+
+Install pipx (`sudo pacman -S python-pipx`)
+
+Clone this repo: `git clone https://github.com/lyuksovannyy/steam-acolyte.git`
+
+Go to cloned dir (`cd steam-acolyte`)
+
+Install app with pipx (`pipx install .`)
+
+If app is not available globally run: `pipx ensurepath`
+
+Create desktop entry to have easy access from start menu
+
+
 Steam account switcher - lightweight program to switch between steam accounts
 without having to reenter password/2FA.
 
